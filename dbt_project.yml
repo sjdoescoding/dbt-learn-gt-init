@@ -34,6 +34,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   jaffle_shop:
-    +materialized: view
+    staging: #Staging models as best practice should be views
+      +materialized: view
 
+    marts:
+      +materialized: table #Downstream tables queried by BI tools rather than views, data object already exists 
     
