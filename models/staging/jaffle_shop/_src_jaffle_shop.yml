@@ -4,12 +4,13 @@ sources:
     schema: jaffle_shop
     tables:
       - name: customers
+        description: Raw customer data
         columns:
           - name: id
             description: primary key
             data_tests:
               - unique
-              - not_null        
+              - not_null
       - name: orders
         config:
           freshness:
@@ -20,3 +21,8 @@ sources:
               count: 1
               period: day
           loaded_at_field: _etl_loaded_at
+        columns:
+          - name: id
+            description: primary key
+            data_tests:
+              - not_null
